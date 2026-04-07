@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MindAR Face - Orejas de Gato</title>
+    <title>MindAR Face - Orejas Corregidas</title>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
     <style>
@@ -31,40 +31,29 @@
         <a-gltf-model 
           src="#orejasModel" 
           rotation="0 0 0" 
-          position="0 0.1 0" 
-          scale="0.5 0.5 0.5">
+          position="0 0.4 -0.2" 
+          scale="0.6 0.6 0.6">
         </a-gltf-model>
       </a-entity>
 
       <a-entity mindar-face-target="anchorIndex: 168">
-        <a-gltf-model 
-          src="#gafasModel" 
-          rotation="0 0 0" 
-          position="0 -0.05 0"  
-          scale="0.5 0.5 0.5">
-        </a-gltf-model>
+        <a-gltf-model src="#gafasModel" rotation="0 0 0" position="0 -0.05 0" scale="0.5 0.5 0.5"></a-gltf-model>
       </a-entity>
 
       <a-entity mindar-face-target="anchorIndex: 2">
-        <a-gltf-model 
-          src="#bigoteModel" 
-          rotation="-90 0 0" 
-          position="0 -0.1 0"   
-          scale="0.3 0.3 0.3">
-        </a-gltf-model>
+        <a-gltf-model src="#bigoteModel" rotation="-90 0 0" position="0 -0.1 0" scale="0.3 0.3 0.3"></a-gltf-model>
       </a-entity>
       
     </a-scene>
 
     <script>
-      // Mantenemos tu configuración de cámara trasera
       document.addEventListener("DOMContentLoaded", () => {
         const sceneEl = document.querySelector('a-scene');
         sceneEl.addEventListener('viewready', () => {
           const controller = sceneEl.systems["mindar-face-system"].controller;
           controller.videoConfig = {
-            facingMode: 'environment',
-            mirrored: false
+            facingMode: 'user', // Cambiado a 'user' para que puedas probarlo tú mismo
+            mirrored: true
           };
         });
       });
